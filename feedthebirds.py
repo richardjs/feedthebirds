@@ -64,11 +64,6 @@ def main():
         )
 
     for username in args.username:
-        # since we're using the username to build paths, test for
-        # alphanumeric (since Twitter handles should be anyway)
-        if not username.isalnum():
-            print(f'WARNING: skipping {username} -- not alphanumeric')
-
         if aggregate_feed:
             make_feed(username, aggregate_feed=aggregate_feed)
         else:
