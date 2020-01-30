@@ -22,7 +22,7 @@ def make_feed(username, filename=None, aggregate_feed=None):
     soup = BeautifulSoup(data, features='html5lib')
 
     for tweet in soup.find_all('div', class_='tweet'):
-        text = tweet.find('div', class_='js-tweet-text-container').get_text()
+        text = tweet.find('div', class_='js-tweet-text-container').get_text(' ')
         if aggregate_feed:
             text = f'@{username}: {text}'
         relative_permalink = tweet.find('a', class_='js-permalink')['href']
